@@ -1,13 +1,65 @@
 <!doctype html>
-<html><head>
+<html>
+<head>
 <meta charset="utf-8">
-<title>Godot 기초 샘플 문서</title>
-<link rel="stylesheet" href="{{ '/obsidian-notes/public/css/style.css' | relative_url }}">
-</head><body>
-<h1>Godot 기초 샘플 문서</h1>
-<p>이 문서는 테스트용 샘플입니다. 링크 및 이미지 테스트.</p>
-<ul>
-<li>항목 A</li>
-<li>항목 B</li>
-</ul>
-</body></html>
+<title>Godot 기초</title>
+<link rel="stylesheet" href="/obsidian-notes/public/css/style.css">
+</head>
+<body>
+<div class="container">
+  <div class="sidebar" style="background:#222;color:#fff;padding:15px;float:left;width:220px;min-height:100vh;">
+    <h2 style="color:#fff">Monos</h2>
+    <p style="color:#aaa">Themed by ejjoo</p>
+    <h3 style="color:#fff">Pages</h3>
+    <ul style="list-style:none;padding-left:0">
+      <li><a href="/obsidian-notes/game/" style="color:#aaa">GAME</a></li>
+      <li><a href="/obsidian-notes/ai/" style="color:#aaa">AI</a></li>
+    </ul>
+  </div>
+  <div class="content" style="margin-left:240px;padding:30px;">
+# Godot Engine 기초
+
+이 문서는 Godot 공식 문서(Stable)와 튜토리얼을 참고하여 작성된 기초 가이드입니다.
+
+## 소개
+Godot은 오픈소스 2D/3D 게임 엔진으로, Nodes와 Scenes 기반 아키텍처를 사용합니다. 이 문서에서는 핵심 개념(노드, 씬, 씬 인스턴스화, 스크립팅, 입력 처리, 신호 등)과 간단한 예제를 다룹니다.
+
+## 노드( Nodes )와 씬( Scenes )
+- 노드: Godot의 기본 구성 요소입니다. 각 노드는 특정 기능을 담당합니다(e.g., Sprite, Node2D, CollisionShape2D).
+- 씬: 노드들의 트리 구조로 이루어진 단위입니다. 씬은 독립적으로 재사용 가능하며 인스턴스로 만들어 다른 씬에 포함할 수 있습니다.
+
+## 씬 인스턴스화
+- 씬을 인스턴스화하여 재사용 가능한 구성 요소로 활용합니다.
+- 예: 플레이어 씬을 만들어 여러 레벨에 인스턴스화하여 사용.
+
+## 스크립팅
+- Godot의 기본 스크립팅 언어는 GDScript이며, Python과 유사한 문법을 가집니다.
+- 간단한 예:
+
+```gdscript
+extends Node2D
+
+func _ready():
+    print("Hello, Godot")
+
+func _process(delta):
+    pass
+```
+
+## 입력 처리
+- Input singleton을 사용하거나 _input(event) 콜백을 사용합니다.
+- 예: if Input.is_action_pressed("ui_right"):
+
+## 신호(Signals)
+- 노드 간 통신을 위한 이벤트 시스템입니다. 사용자 정의 신호를 선언하고 emit_signal으로 전송하며, 다른 노드에서 connect로 연결해 처리합니다.
+
+## 리소스와 파일 구조
+- 프로젝트 루트에는 project.godot 파일이 있으며, 씬(.tscn)과 스크립트(.gd) 파일들이 포함됩니다.
+
+## 참고 자료
+- Godot Official Docs: https://docs.godotengine.org/en/stable/
+
+  </div>
+</div>
+</body>
+</html>
