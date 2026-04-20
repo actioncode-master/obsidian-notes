@@ -26,13 +26,22 @@
 <div class="sidebar-item sidebar-nav">
   	<ul class="nav">
 		<li class="nav-title">Categories</li>
-		{% assign nav = site.data.navigation.pages %}
-		{% for p in nav %}
-		  <li>
-		    <a class="nav-item" href="{{ p.url | relative_url }}">
-		      <span class="name">{{ p.title }}</span>
-		    </a>
-		  </li>
+		{% assign nav_pages = site.data.navigation.pages %}
+		{% assign nav_slugs = "" %}
+		{% for np in nav_pages %}
+		  {% assign nav_slugs = nav_slugs | append: np.title | append: "," %}
+		{% endfor %}
+		{% assign nav_slugs = nav_slugs | downcase %}
+		{% for category in site.categories %}
+		  {% assign catname = category[0] %}
+		  {% unless nav_slugs contains catname %}
+		    <li>
+		      <a class="nav-item" href="{{ '/' | append: site.category_dir | append: '/' | append: catname | relative_url }}">
+		        <span class="name">{{ catname }}</span>
+		        <span class="badge">{{ category[1] | size }}</span>
+		      </a>
+		    </li>
+		  {% endunless %}
 		{% endfor %}
 	  </ul>
 </div>
