@@ -1,0 +1,6 @@
+title: Obsidian Notes
+baseurl: "/obsidian-notes"
+url: "https://actioncode-master.github.io"
+markdown: kramdown
+permalink: /:path/
+exclude: ["node_modules", "vendor", "docs", "index.html", ".pages_url", ".gitignore"]
