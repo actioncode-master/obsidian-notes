@@ -15,14 +15,14 @@
       name: 'Obsidian Notes',
       repo: 'https://github.com/actioncode-master/obsidian-notes',
       loadSidebar: true,
-      homepage: 'README.md',
+      homepage: 'docs/README.md',
       subMaxLevel: 2,
       plugins: [
         function(hook, vm) {
           hook.beforeEach(function(content) {
             return content.replace(/\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]/g, function(_, target, alias){
               var text = alias || target;
-              var filename = encodeURI(target.trim()) + '.md';
+              var filename = 'docs/' + encodeURI(target.trim()) + '.md';
               return '[' + text.trim() + '](' + filename + ')';
             });
           });
