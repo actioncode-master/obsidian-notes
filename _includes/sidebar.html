@@ -13,38 +13,28 @@
 
 <div class="sidebar-item sidebar-nav">
 	<ul class="nav">
-      <li class="nav-title">Pages</li>
-	  <li>
-	  	<a class="nav-item" href="{{ '/' | relative_url }}">Articles</a>
-	  </li>
-	  {% assign pages_list = site.pages %}
-	  {% for node in pages_list %}
-	    {% if node.title != null %}
-	      {% if node.layout == "page" %}
-	        <li>
-	        	<a class="nav-item" href="{{ node.url | relative_url }}">
-	            	{{ node.title }}
-	            </a>
-	        </li>
-	      {% endif %}
-	    {% endif %}
+	  <li class="nav-title">Pages</li>
+	  {% assign nav = site.data.navigation.pages %}
+	  {% for p in nav %}
+	    <li>
+	      <a class="nav-item" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+	    </li>
 	  {% endfor %}
 	</ul>
 </div>
 
 <div class="sidebar-item sidebar-nav">
   	<ul class="nav">
-			<li class="nav-title">Categories</li>
-	    {% for category in site.categories %}
-	    <li>
-	    	<a class="nav-item" href="{{ '/'+ site.category_dir | relative_url }}#{{ category | first }}">
-				<span class="name">{{ category | first }}</span>
-				<span class="badge">{{ category | last | size }}</span>
-	    	</a>
- 		</li>
-	    {% endfor %}
-	  </nav>
-	</ul>
+		<li class="nav-title">Categories</li>
+		{% assign nav = site.data.navigation.pages %}
+		{% for p in nav %}
+		  <li>
+		    <a class="nav-item" href="{{ p.url | relative_url }}">
+		      <span class="name">{{ p.title }}</span>
+		    </a>
+		  </li>
+		{% endfor %}
+	  </ul>
 </div>
 
 <div class="sidebar-item sidebar-footer">

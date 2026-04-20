@@ -1,0 +1,7 @@
+pages:
+  - title: "GAME"
+    category: "game"
+    url: "/game/"
+  - title: "AI"
+    category: "ai"
+    url: "/ai/"
