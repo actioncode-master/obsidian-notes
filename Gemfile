@@ -6,3 +6,5 @@ gem 'jekyll', '~> 4.2'
 
 # Remote theme support
 gem 'jekyll-remote-theme'
+gem 'jekyll-feed'
+gem 'jekyll-seo-tag'
